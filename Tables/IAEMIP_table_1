@@ -1,0 +1,2145 @@
+!      Indirect Aerosol Effects Model Intercomparison Project
+!       Monthly-Mean Standard Output Table for CMOR
+!
+cmor_version: 1.0         ! version of CMOR that can read this table
+cf_version:   1.0         ! version of CF that output conforms to
+project_id:   Indirect Aerosol Effects Model Intercomparison Project   ! project id
+table_id:     Table 1     ! table id
+table_date:   13 September 2005 ! date this table was constructed
+
+           ! official name(s) of project's experiments
+expt_id_ok:   'Present day: Prescribed aerosol mass; no effect of aerosols on precipitation efficiency; common treatment of precipitation efficiency; common treatment of cloud droplet number parameterization; does not include aerosol direct effects on the heating profile'
+expt_id_ok:   'Preindustrial: Prescribed aerosol mass; no effect of aerosols on precipitation efficiency; common treatment of precipitation efficiency; common treatment of cloud droplet number parameterization; does not include aerosol direct effects on the heating profile'
+expt_id_ok:   'Present day: Prescribed aerosol mass and size distribution; no effect on precipitation by aerosols; common treatment of precipitation efficiency; no common cloud droplet number parameterization; does not include aerosol direct effects on the heating profile'
+expt_id_ok:   'Preindustrial: Prescribed aerosol mass and size distribution; no effect on precipitation by aerosols; common treatment of precipitation efficiency; no common cloud droplet number parameterization; does not include aerosol direct effects on the heating profile'
+expt_id_ok:   'Present day: Prescribed aerosol mass and size distribution; common treatment of effect of aerosols on precipitation efficiency; no common cloud droplet number parameterization; does not include aerosol direct effects on the heating profile'
+expt_id_ok:   'Preindustrial: Prescribed aerosol mass and size distribution; common treatment of effect of aerosols on precipitation efficiency; no common cloud droplet number parameterization; does not include aerosol direct effects on the heating profile'
+expt_id_ok:   'Present day: Prescribed aerosol mass and size distribution; no common treatment of effect of aerosols on precipitation efficiency; no common cloud droplet number parameterization; does not include aerosol direct effects on the heating profile'
+expt_id_ok:   'Preindustrial: Prescribed aerosol mass and size distribution; no common treatment of effect of aerosols on precipitation efficiency; no common cloud droplet number parameterization; does not include aerosol direct effects on the heating profile'
+expt_id_ok:   'Present day: Prescribed aerosol sources; no common treatment of effect of aerosols on precipitation efficiency; no common cloud droplet number parameterization; does not include aerosol direct effects on the heating profile'
+expt_id_ok:   'Preindustrial: Prescribed aerosol sources; no common treatment of effect of aerosols on precipitation efficiency; no common cloud droplet number parameterization; does not include aerosol direct effects on the heating profile'
+expt_id_ok:   'Present day: Prescribed aerosol sources; no common treatment of effect of aerosols on precipitation efficiency; no common cloud droplet number parameterization; includes aerosol direct effects on the heating profile'
+expt_id_ok:   'Preindustrial: Prescribed aerosol sources; no common treatment of effect of aerosols on precipitation efficiency; no common cloud droplet number parameterization; includes aerosol direct effects on the heating profile'
+expt_id_ok:   'Present day: Prescribed aerosol sources; prescribed aerosol primary emissions and size; no common treatment of effect of aerosols on precipitation efficiency; no common cloud droplet number parameterization; includes aerosol direct effects on the heating profile'
+expt_id_ok:   'Preindustrial: Prescribed aerosol sources; prescribed aerosol primary emissions and size; no common treatment of effect of aerosols on precipitation efficiency; no common cloud droplet number parameterization; includes aerosol direct effects on the heating profile'
+
+magic_number: -1          ! used to check whether this file has been
+                           !   altered from the official version.
+                           !   should be set to number of non-blank
+                           !   characters in file.
+approx_interval:  30.     ! approximate spacing between successive time
+                           !   samples (in units of the output time
+                           !   coordinate), but this is ignored if set to 0.
+missing_value: 1.e20      ! value used to indicate a missing value
+                           !   in arrays output by netCDF as 32-bit IEEE
+                           !   floating-point numbers (float or real)
+
+!*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+!
+! SUBROUTINE ARGUMENT DEFAULT INFORMATION
+!
+!*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+!
+!  set default specifications for subroutine arguments to:
+!     required/indeterminate/optional/ignored/forbidden
+!    (indeterminate may or may not be required information, but is not always
+!     required as an argument of the function call)
+!
+!
+!============
+subroutine_entry: cmor_axis
+!============
+!
+required: table axis_name units length coord_vals cell_bounds
+ignored: interval
+!
+!============
+subroutine_entry: cmor_variable
+!============
+!
+required: table table_entry units axis_ids
+indeterminate: missing_value
+optional: tolerance original_name history comment
+ignored: positive
+!
+!============
+subroutine_entry: cmor_write
+!============
+!
+required:  var_id data
+indeterminate: ntimes_passed time_vals time_bnds store_with
+optional: file_suffix
+!
+!
+!*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+!
+! AXIS INFORMATION
+!
+!*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+!
+!
+!
+!  TEMPLATE FOR AXES
+!
+!============
+!axis_entry:               ! (required)
+!============
+!
+!    Override default argument specifications for cmor_axis
+!------------
+!    acceptable arguments include units length coord_vals cell_bounds interval
+!required:                  ! (default: table axis_name units length
+!                                        coord_vals cell_bounds)
+!indeterminate:
+!optional:
+!ignored:                   ! (default: interval)
+!forbidden:
+!------------
+!
+! Axis attributes:
+!----------------------------------
+!standard_name:             ! (required)
+!units:                     ! (required)
+!axis:                      ! X, Y, Z, T (default: undeclared)
+!positive:                  ! up or down (default: undeclared)
+!long_name:                 ! (default: undeclared)
+!----------------------------------
+!
+! Additional axis information:
+!----------------------------------
+!out_name:                ! (default: same as axis_entry)
+!type:                    ! double (default), real, character, integer
+!stored_direction:        ! increasing (default) or decreasing
+!valid_min:               ! type: double precision (default: no check performed
+!valid_max:               ! type: double precision (default: no check performed
+!requested:               ! space-separated list of requested coordinates
+                           !       (default: undeclared)
+!bounds_requested:        ! space-separated list of requested coordinate bounds
+                           !       (default: undeclared)
+!tol_on_requests:         ! fractional tolerance for meeting request
+                           !  (default=1.e-3, which is used in the formula:
+                           !     eps =  MIN(( tol*interval between grid-points)
+                           !          and (1.e-3*tol*coordinate value)))
+!value:                   ! of scalar (singleton) dimension
+!bounds_values:           ! of scalar (singleton) dimension bounds
+!----------------------------------
+!
+!
+!  TEMPLATE FOR VARIABLES
+!
+!
+!============
+!variable_entry:                ! (required)
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+!        acceptable arguments include  file_suffix missing_value tolerance
+!                               original_name history comment positive
+!required:                   ! (default: table table_entry units axis_ids)
+!indeterminate:              ! (default: file_suffix missing_value)
+!optional:                   ! (default: original_name history comment)
+!ignored:                    ! (default: positive)
+!forbidden:
+!------------
+!
+! Variable attributes:
+!----------------------------------
+!standard_name:              ! (required)
+!units:                      ! (required)
+!cell_methods:               ! (default: undeclared)
+!long_name:                  ! (default: undeclared)
+!comment:                    ! (default: undeclared)
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+!dimensions:                 ! (required)  (scalar dimension(s) should appear
+                              !      last in list)
+!out_name:                   ! (default: variable_entry)
+!type:                       ! real (default), double, integer
+!positive:                   ! up or down (default: undeclared)
+!valid_min:                  ! type: real (default: no check performed)
+!valid_max:                  ! type: real (default: no check performed)
+!ok_min_mean_abs:            ! type: real (default: no check performed)
+!ok_max_mean_abs:            ! type: real (default: no check performed)
+!----------------------------------
+!
+
+!
+!============
+axis_entry: longitude
+!============
+!
+!------------
+!
+! Axis attributes:
+!----------------------------------
+standard_name:    longitude
+units:            degrees_east
+axis:             X
+long_name:        longitude
+!----------------------------------
+!
+! Additional axis information:
+!----------------------------------
+out_name:         lon
+valid_min:        0.           ! CMOR will add n*360 to input values
+                                ! (where n is an integer) to ensure
+                                !  longitudes are in proper range.  The
+                                !  data will also be rearranged
+                                !  appropriately.
+valid_max:        360.         !  see above comment.
+!----------------------------------
+!
+!
+!=============
+axis_entry: latitude
+!=============
+!
+! Axis attributes:
+!----------------------------------
+standard_name:    latitude
+units:            degrees_north
+axis:             Y
+long_name:        latitude
+!----------------------------------
+!
+! Additional axis information:
+!----------------------------------
+out_name:         lat
+valid_min:        -90.
+valid_max:        90.
+!----------------------------------
+!
+!
+!
+!============
+axis_entry: time
+!============
+!
+!    Override default argument specifications for cmor_axis
+!------------
+optional: interval length
+indeterminate: coord_vals cell_bounds
+!------------
+!
+! Axis attributes:
+!----------------------------------
+standard_name:    time
+units:            days since ?
+axis:             T
+long_name:        time
+!----------------------------------
+!
+!
+!============
+axis_entry: bin
+!============
+!
+! Axis attributes:
+!----------------------------------
+units:            none
+long_name:        bin
+!----------------------------------
+!
+!
+!============
+axis_entry: standard_sigma
+!============
+!
+!    Override default argument specifications for cmor_axis
+!------------
+optional: units
+!------------
+!
+! Axis attributes:
+!----------------------------------
+standard_name:    atmosphere_sigma_coordinate
+axis:             Z
+positive:         down
+long_name:        sigma coordinate
+!----------------------------------
+!
+! Additional axis information:
+!----------------------------------
+out_name:         lev
+stored_direction: decreasing
+valid_min:        0.0
+valid_max:        1.0
+formula:          p(n,k,j,i) = ptop + sigma(k)*(ps(n,j,i) - ptop)
+convert_to:       standard_hybrid_sigma
+z_factors:        ptop: ptop sigma: sigma ps: ps
+z_bounds_factors: ptop: ptop sigma: sigma_bnds ps: ps
+!----------------------------------
+!
+!
+!============
+axis_entry:  standard_hybrid_sigma
+!============
+!
+!    Override default argument specifications for cmor_axis
+!------------
+optional: units
+!------------
+!
+! Axis attributes:
+!----------------------------------
+standard_name:    atmosphere_hybrid_sigma_pressure_coordinate
+units:            1
+axis:             Z
+positive:         down
+long_name:        hybrid sigma pressure coordinate
+!----------------------------------
+!
+! Additional axis information:
+!----------------------------------
+out_name:         lev
+stored_direction: decreasing
+valid_min:        0.0
+valid_max:        1.0
+formula:          p(n,k,j,i) = a(k)*p0 + b(k)*ps(n,j,i)
+z_factors:        p0: p0 a: a b: b ps: ps
+z_bounds_factors: p0: p0 a: a_bnds b: b_bnds ps: ps
+!----------------------------------
+!
+!
+!============
+axis_entry:  alternate_hybrid_sigma
+!============
+!
+!    Override default argument specifications for cmor_axis
+!------------
+optional: units
+!------------
+!
+! Axis attributes:
+!----------------------------------
+standard_name:    atmosphere_hybrid_sigma_pressure_coordinate
+units:            1
+axis:             Z
+positive:         down
+long_name:        hybrid sigma pressure coordinate
+!----------------------------------
+!
+! Additional axis information:
+!----------------------------------
+out_name:         lev
+stored_direction: decreasing
+valid_min:        0.0
+valid_max:        1.0
+formula:          p(n,k,j,i) = ap(k) + b(k)*ps(n,j,i)
+convert_to:       standard_hybrid_sigma
+z_factors:        p0: p0 ap: ap b: b ps: ps
+z_bounds_factors: p0 ap: ap_bnds b: b_bnds ps: ps
+!----------------------------------
+!
+!
+!============
+axis_entry:  hybrid_height
+!============
+!
+!    Override default argument specifications for cmor_axis
+!------------
+optional: units
+!------------
+!
+! Axis attributes:
+!----------------------------------
+standard_name:    atmosphere_hybrid_height_coordinate
+units:            m
+axis:             Z
+positive:         up
+long_name:        hybrid height coordinate
+!----------------------------------
+!
+! Additional axis information:
+!----------------------------------
+out_name:         lev
+stored_direction: increasing
+valid_min:        0.0
+formula:          z(k,j,i) = a(k) + b(k)*orog(j,i)
+z_factors:        a: az b: bz orog: orog
+z_bounds_factors: a: az_bnds b: bz_bnds orog: orog
+!----------------------------------
+!
+!
+!*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+!
+! VARIABLE INFORMATION
+!
+!*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+!
+!
+!
+! ***************************************************************
+!
+! Vertical dimensionless coordinate variables:
+!
+! ***************************************************************
+!
+!
+!
+!============
+variable_entry: p0
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+ignored: axis_ids
+!------------
+!
+! Variable attributes:
+!----------------------------------
+long_name:       reference pressure for hybrid sigma coordinate
+units:           Pa
+!----------------------------------
+!
+!
+!============
+variable_entry: ptop
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+ignored: axis_ids
+!------------
+!
+! Variable attributes:
+!----------------------------------
+long_name:       pressure at top of model
+units:           Pa
+!----------------------------------
+!
+!
+!============
+variable_entry: sigma
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+optional: units
+!------------
+!
+! Variable attributes:
+!----------------------------------
+long_name:  sigma coordinate
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: sigma_bnds
+!============
+!IPCC_table_A1
+!    Override default argument specifications for cmor_variable
+!------------
+optional: units
+!------------
+!
+! Variable attributes:
+!----------------------------------
+long_name:  sigma coordinate for layer bounds
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: a
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+optional: units
+!------------
+!
+! Variable attributes:
+!----------------------------------
+long_name:   hybrid sigma coordinate A coefficient for layer
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: b
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+optional: units
+!------------
+!
+! Variable attributes:
+!----------------------------------
+long_name:   hybrid sigma coordinate B coefficient for layer
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: a_bnds
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+optional: units
+!------------
+!
+! Variable attributes:
+!----------------------------------
+long_name:   hybrid sigma coordinate A coefficient for layer bounds
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: b_bnds
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+optional: units
+!------------
+!
+! Variable attributes:
+!----------------------------------
+long_name:   hybrid sigma coordinate B coefficient for layer bounds
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: ap
+!============
+!
+! Variable attributes:
+!----------------------------------
+long_name:   alternate hybrid sigma coordinate A coefficient for layer
+units:           Pa
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: ap_bnds
+!============
+!
+! Variable attributes:
+!----------------------------------
+long_name:   alternate hybrid sigma coordinate A coefficient for layer bounds
+units:           Pa
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: az
+!============
+!
+!
+! Variable attributes:
+!----------------------------------
+long_name:   hybrid height coordinate A coefficient for layer
+units:           m
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: bz
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+optional: units
+!------------
+!
+! Variable attributes:
+!----------------------------------
+long_name:   hybrid height coordinate B coefficient for layer
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: az_bnds
+!============
+!
+! Variable attributes:
+!----------------------------------
+long_name:   hybrid sigma coordinate A coefficient for layer bounds
+units:           m
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!============
+variable_entry: bz_bnds
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+optional: units
+!------------
+!
+! Variable attributes:
+!----------------------------------
+long_name:   hybrid sigma coordinate B coefficient for layer bounds
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         zlevel
+type:               double
+!----------------------------------
+!
+!
+!
+! ***************************************************************
+!
+! IPCC Table A1a: Monthly-mean 2-d atmosphere
+!
+! ***************************************************************
+!
+!
+!
+!============
+variable_entry: ps
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:   surface_air_pressure
+units:           Pa
+cell_methods:    time: mean
+long_name:       Surface Pressure
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+valid_min:        0.48e5
+valid_max:        1.1e5
+ok_min_mean_abs:  0.97e5
+ok_max_mean_abs:  1.0e5
+!----------------------------------
+!
+!
+!============
+variable_entry: orog
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name: surface_altitude
+units:         m
+long_name:     Surface Altitude
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude
+valid_min:        -500.
+valid_max:        12000.
+ok_min_mean_abs:  0.
+ok_max_mean_abs:  2000.
+!----------------------------------
+!
+!============
+variable_entry: stemp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name: surface_temperature
+units:         K
+cell_methods:  time: mean
+long_name:     Surface Skin Temperature
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+valid_min:        170.
+valid_max:        340.
+ok_min_mean_abs:  280.
+ok_max_mean_abs:  300.
+!----------------------------------
+!
+!
+!============
+variable_entry: solin
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+required: positive
+!------------
+!
+! Variable attributes:
+!----------------------------------
+standard_name: toa_incoming_shortwave_flux
+units:         W m-2
+cell_methods:  time: mean
+long_name:     TOA Incident Shortwave Radiation
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+positive:         down
+!----------------------------------
+!
+!!============
+variable_entry: surfalb
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name: toa_incoming_shortwave_flux
+units:         1
+cell_methods:  time: mean
+long_name:     Surface Albedo
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+valid_min:        0.0
+valid_max:        1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: Totalcfrac
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name: cloud_area_fraction
+units:         1
+cell_methods:  time: mean
+long_name:     Total Cloud Fraction
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+valid_min:        0.0
+valid_max:        1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: scif2d
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1
+cell_methods:  time: mean
+long_name:     Stratoform Ice Cloud Frequency
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+valid_min:        0.0
+valid_max:        1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: sclf2d
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1
+cell_methods:  time: mean
+long_name:     Stratoform Liquid Cloud Frequency
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+valid_min:        0.0
+valid_max:        1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: ccif2d
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1
+cell_methods:  time: mean
+long_name:     Convective Ice Cloud Frequency
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+valid_min:        0.0
+valid_max:        1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: cclf2d
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1
+cell_methods:  time: mean
+long_name:     Convective Liquid Cloud Frequency
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+valid_min:        0.0
+valid_max:        1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tcifrac2d
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name: cloud_area_fraction
+units:         1
+cell_methods:  time: mean
+long_name:     Total Ice Cloud Area Fraction
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+valid_min:        0.0
+valid_max:        1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tclfrac2d
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name: cloud_area_fraction
+units:         1
+cell_methods:  time: mean
+long_name:     Total Liquid Cloud Area Fraction
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+valid_min:        0.0
+valid_max:        1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: TOAcsswf
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+required: positive
+!------------
+!
+! Variable attributes:
+!----------------------------------
+standard_name: toa_net_upward_shortwave_flux_assuming_clear_sky
+units:         W m-2
+cell_methods:  time: mean
+long_name:     TOA Net Upward Clear-Sky Shortwave Flux
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+positive:         up
+!----------------------------------
+!
+!
+!============
+variable_entry: TOAwsswf
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+required: positive
+!------------
+!
+! Variable attributes:
+!----------------------------------
+standard_name: toa_net_upward_shortwave_flux
+units:         W m-2
+cell_methods:  time: mean
+long_name:     TOA Net Upward Shortwave Flux
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+positive:         up
+!----------------------------------
+!
+!
+!============
+variable_entry: TOAcslwf
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+required: positive
+!------------
+!
+! Variable attributes:
+!----------------------------------
+standard_name: toa_net_upward_longwave_flux_assuming_clear_sky
+units:         W m-2
+cell_methods:  time: mean
+long_name:     TOA Net Upward Clear-Sky Longwave Flux
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+positive:         up
+!----------------------------------
+!
+!
+!============
+variable_entry: TOAwslwf
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+required: positive
+!------------
+!
+! Variable attributes:
+!----------------------------------
+standard_name: toa_net_upward_longwave_flux
+units:         W m-2
+cell_methods:  time: mean
+long_name:     TOA Net Upward Longwave Flux
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+positive:         up
+!----------------------------------
+!
+!
+!============
+variable_entry: Scsswf
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+required: positive
+!------------
+!
+! Variable attributes:
+!----------------------------------
+standard_name: surface_net_upward_shortwave_flux_assuming_clear_sky
+units:         W m-2
+cell_methods:  time: mean
+long_name:     Net Upward Clear-Sky Shortwave Flux at the Surface
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+positive:         up
+!----------------------------------
+!
+!
+!============
+variable_entry: Swsswf
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+required: positive
+!------------
+!
+! Variable attributes:
+!----------------------------------
+standard_name: surface_net_upward_shortwave_flux
+units:         W m-2
+cell_methods:  time: mean
+long_name:     Net Upward Shortwave Flux at the Surface
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+positive:         up
+!----------------------------------
+!
+!
+!============
+variable_entry: Scslwf
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+required: positive
+!------------
+!
+! Variable attributes:
+!----------------------------------
+standard_name: surface_net_upward_longwave_flux_assuming_clear_sky
+units:         W m-2
+cell_methods:  time: mean
+long_name:     Net Upward Clear-Sky Longwave Flux at the Surface
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+positive:         up
+!----------------------------------
+!
+!
+!============
+variable_entry: Swslwf
+!============
+!
+!    Override default argument specifications for cmor_variable
+!------------
+required: positive
+!------------
+!
+! Variable attributes:
+!----------------------------------
+standard_name: surface_net_upward_longwave_flux
+units:         W m-2
+cell_methods:  time: mean
+long_name:     Net Upward Longwave Flux at the Surface
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude time
+positive:         up
+!----------------------------------
+!
+!
+!============
+variable_entry: scfrac
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_area_fraction
+units:          1
+cell_methods:   time: mean
+long_name:      Stratiform Cloud Fraction
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+valid_max:          1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: scwfreq
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1
+cell_methods:   time: mean
+long_name:      Stratiform Liquid Water Cloud Frequency
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+valid_max:          1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: scifreq
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1
+cell_methods:   time: mean
+long_name:      Stratiform Ice Cloud Frequency
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+valid_max:          1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: sinclwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_liquid_water_content_of_atmosphere_layer_where_cloud
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Stratiform In-Cloud LWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: sinciwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_ice_content_of_atmosphere_layer_where_cloud
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Stratiform In-Cloud IWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: sclwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_liquid_water_content_of_atmosphere_layer
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Stratiform Cloud LWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: sciwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_liquid_water_content_of_atmosphere_layer
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Stratiform Cloud IWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: snd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          cm-3
+cell_methods:   time: mean
+long_name:      Stratiform In-Cloud Droplet Number Concentration
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: sre
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1e-6 m
+cell_methods:   time: mean
+long_name:      Stratiform In-Cloud Droplet Effective Radius
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: sinclod
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1
+cell_methods:   time: mean
+long_name:      Stratiform In-Cloud Optical Depth at 550 nm
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: ccfrac
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_area_fraction
+units:          1
+cell_methods:   time: mean
+long_name:      Convective Cloud Fraction
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+valid_max:          1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: ccwfreq
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1
+cell_methods:   time: mean
+long_name:      Convective Liquid Water Cloud Frequency
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+valid_max:          1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: ccifreq
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1
+cell_methods:   time: mean
+long_name:      Convective Ice Cloud Frequency
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+valid_max:          1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: cinclwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name: cloud_liquid_water_content_of_atmosphere_layer_where_cloud
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Convective In-Cloud LWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: cinciwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_ice_content_of_atmosphere_layer_where_cloud
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Convective In-Cloud IWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: cclwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_liquid_water_content_of_atmosphere_layer
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Convective Cloud LWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: cciwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_ice_content_of_atmosphere_layer
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Convective Cloud IWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: cnd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          cm-3
+cell_methods:   time: mean
+long_name:      Convective In-Cloud Droplet Number Concentration
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: cre
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1e-6 m
+cell_methods:   time: mean
+long_name:      Convective In-Cloud Droplet Effective Radius
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: cinclod
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1
+cell_methods:   time: mean
+long_name:      Convective In-Cloud Optical Depth at 550 nm
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tcfrac
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_area_fraction
+units:          1
+cell_methods:   time: mean
+long_name:      Total Cloud Fraction
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+valid_max:          1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tcwfreq
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1
+cell_methods:   time: mean
+long_name:      Total Water Cloud Frequency
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+valid_max:          1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tcifreq
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1
+cell_methods:   time: mean
+long_name:      Total Ice Cloud Frequency
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+valid_max:          1.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tinclwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_liquid_water_content_of_atmosphere_layer_where_cloud
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Total In-Cloud LWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tinciwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_ice_content_of_atmosphere_layer_where_cloud
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Total In-Cloud IWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tclwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_liquid_water_content_of_atmosphere_layer
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Total Cloud LWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tciwp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name:  cloud_ice_content_of_atmosphere_layer
+units:          kg m-2
+cell_methods:   time: mean
+long_name:      Total Cloud IWP
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tnd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          cm-3
+cell_methods:   time: mean
+long_name:      Total In-Cloud Droplet Number Concentration
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tre
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1e-6 m
+cell_methods:   time: mean
+long_name:      Total In-Cloud Droplet Effective Radius
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: tinclod
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:          1
+cell_methods:   time: mean
+long_name:      Total In-Cloud Optical Depth at 550 nm
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:         longitude latitude zlevel time
+valid_min:          0.0
+!----------------------------------
+!
+!
+!============
+variable_entry: q
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name: specific_humidity
+units:         1
+cell_methods:  time: mean
+long_name:     Specific Humidity
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude zlevel time
+!----------------------------------
+!
+!
+!============
+variable_entry: RHD
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name: relative_humidity
+units:         %
+cell_methods:  time: mean
+long_name:     Relative Humidity
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude zlevel time
+valid_min:        0.
+valid_max:        100.
+ok_min_mean_abs:  1.
+ok_max_mean_abs:  99.
+!----------------------------------
+!
+!
+!============
+variable_entry: temp
+!============
+!
+! Variable attributes:
+!----------------------------------
+standard_name: air_temperature
+units:         K
+cell_methods:  time: mean
+long_name:     Temperature
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude zlevel time
+valid_min:        150.
+valid_max:        350.
+ok_min_mean_abs:  200.
+ok_max_mean_abs:  300.
+!----------------------------------
+!
+!
+!============
+variable_entry: Dp
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         Pa
+cell_methods:  time: mean
+long_name:     Thickness of Model Layer
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude zlevel time
+!----------------------------------
+!
+!
+!============
+variable_entry: Dcloud
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         Pa
+cell_methods:  time: mean
+long_name:     Thickness of Layer's Cloud
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude zlevel time
+!----------------------------------
+!
+!
+!============
+variable_entry: wp
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         m s-1
+cell_methods:  time: mean
+long_name:     In-Cloud Updraft Velocity
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure time
+!----------------------------------
+!
+!
+!============
+variable_entry: wbar
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         m s-1
+cell_methods:  time: mean
+long_name:     Grid-Average Large-Scale Up Draft
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure time
+!----------------------------------
+!
+!
+!============
+variable_entry: wc
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         kg m-2 s-1
+cell_methods:  time: mean
+long_name:     Convective Mass Flux
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure time
+!----------------------------------
+!
+!
+!============
+variable_entry: fconv
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1
+cell_methods:  time: mean
+long_name:     Convective Updraft Fraction
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure time
+!----------------------------------
+!
+!
+!============
+variable_entry: DUSTsd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         kg m-3
+cell_methods:  time: mean
+long_name:     Dust Particle Dry Mass Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: SSsd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         kg m-3
+cell_methods:  time: mean
+long_name:     Sea Salt Dry Mass Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: BCsd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         kg m-3
+cell_methods:  time: mean
+long_name:     Black Carbon Dry Mass Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: POMsd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         kg m-3
+cell_methods:  time: mean
+long_name:     Particulate Organic Matter Dry Mass Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: SO4sd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         kg m-3
+cell_methods:  time: mean
+long_name:     Sulfate Aerosol Dry Mass Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: AERsd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         kg m-3
+cell_methods:  time: mean
+long_name:     Total Dry Aerosol Mass Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: AERH2Osd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         kg m-3
+cell_methods:  time: mean
+long_name:     Aerosol Water Mass Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: DUSTer
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1e-6 m
+cell_methods:  time: mean
+long_name:     Dust Particle Effective Radius
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: SSer
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1e-6 m
+cell_methods:  time: mean
+long_name:     Sea Salt Effective Radius
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: BCer
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1e-6 m
+cell_methods:  time: mean
+long_name:     Black Carbon Aerosol Effective Radius
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: POMer
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1e-6 m
+cell_methods:  time: mean
+long_name:     Particulate Organic Matter Effective Radius
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: SO4er
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1e-6 m
+cell_methods:  time: mean
+long_name:     Sulfate Aerosol Effective Radius
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: AERer
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         1e-6 m
+cell_methods:  time: mean
+long_name:     Total Aerosol Effective Radius
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: DUSTnd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         cm-3
+cell_methods:  time: mean
+long_name:     Dust Particle Number Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: SSnd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         cm-3
+cell_methods:  time: mean
+long_name:     Sea Salt Number Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: BCnd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         cm-3
+cell_methods:  time: mean
+long_name:     Black Carbon Number Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: POMnd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         cm-3
+cell_methods:  time: mean
+long_name:     Particulate Organic Matter Number Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: SO4nd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         cm-3
+cell_methods:  time: mean
+long_name:     Sulfate Aerosol Number Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
+!
+!============
+variable_entry: AERnd
+!============
+!
+! Variable attributes:
+!----------------------------------
+units:         cm-3
+cell_methods:  time: mean
+long_name:     Total Aerosol Number Distribution
+!----------------------------------
+!
+! Additional variable information:
+!----------------------------------
+dimensions:       longitude latitude pressure bin time
+!----------------------------------
+!
